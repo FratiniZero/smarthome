@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- HTML5 Hello world by kirupa - http://www.kirupa.com/html5/getting_your_feet_wet_html5_pg1.htm -->
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8">
+
+<title>simulazione sensore</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.6/socket.io.js"></script>
+
+<script type="text/javascript">
+
+var socket = io.connect("ws://localhost:6009/");
+
+	socket.on("connect", function(){
+		console.log("connesso a 6009");
+	});
+
+	$(document).ready(function(){
+		$("#connetti").click(function(){
+			invia();
+		});
+	});
+
+	function invia(){
+		socket.emit("sensoreConnessione","sensoreFasullo");
+		console.log("inviato");
+	}
+	
+</script>
+</head>
+
+<body>
+    <input type="button" name="connetti" id="connetti" />
+    <p>Click to turn on the light!</p>
+</body>
+</html>
