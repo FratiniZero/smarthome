@@ -5,7 +5,7 @@ var app = require('express')()
 server.listen( 80 );
 
 app.get('/', function (req, res) {
-  res.sendfile(__dirname + 'simulaSensore.html');
+  res.sendfile(__dirname + '/simulaSensore.html');
 });
 
 io.set('log level', 1);
